@@ -1,5 +1,5 @@
 {
-    "name": "example-project",
+    "name": "task-spot",
     "description": "Build scripts for Heroku",
     "engines": {
       "node": ">= 14"
@@ -10,4 +10,4 @@
       "deploy": "cp -a client/build/. public/",
       "heroku-postbuild": "npm run clean && npm run build && npm run deploy"
     }
-  }
+}

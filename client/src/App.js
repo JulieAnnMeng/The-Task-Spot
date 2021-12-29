@@ -1,25 +1,28 @@
 import './App.css';
 import React, { useState, useEffect } from "react";
-import Header from "./components/Header";
 import NavBar from "./components/NavBar";
 import Body from "./components/Body";
-import Footer from "./components/Footer";
+// import Footer from "./components/Footer";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [isLoggedIn, setIsLoggedIn] = useState();
+  const [user, setUser] = useState();
 
   useEffect(() => {
-    fetch("/hello")
-      .then((r) => r.json())
-      .then((data) => setCount(data.count));
+    const loggedIn = localStorage.getItem("isLoggedIn");
+    // console.log(loggedIn)
+    setIsLoggedIn(loggedIn)
   }, []);
+
+  // console.log(isLoggedIn)
+  // using localStorage to determine if user has logged in. 
 
   return (
     <div className="App">
-      <Header />
-      <NavBar />
+      <NavBar isLoggedIn={isLoggedIn} setUser={setUser} setIsLoggedIn={setIsLoggedIn}/>
       <Body />
-      <Footer />
+      {/* <Footer /> 
+      Footer issues removed for now*/}
     </div>
   );
 }

@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import Home from "./Home";
 import FunList from "./FunList";
 import NewList from './NewList';
-import Login from "./Login";
-import Signup from "./Signup";
+// import Login from "./Login";
+// import Signup from "./Signup";
 
 function Body() {
 
@@ -24,8 +24,8 @@ function Body() {
         };
   
       useEffect(()=>{
-        getLists();
-        getFunList();
+        // getLists();
+        // getFunList();
       },[update]);
   
        function handleListDelete(id){
@@ -114,12 +114,12 @@ function Body() {
                     : undefined}
                 </Route>
 
-                <Route exact path="/Login">
+                {/* <Route exact path="/Login">
                     <Login />
                 </Route>
                 <Route exact path="/Signup">
                     <Signup />
-                </Route>
+                </Route> */}
             </Switch>
         </div>
     )
