@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { NavLink, Switch, Route } from "react-router-dom";
+import { NavLink, Switch, Route, useHistory } from "react-router-dom";
 // import Home from "./Home";
 // import Login from "./Login";
 // import Signup from "./Signup";
 
 function NavBar({isLoggedIn, setIsLoggedIn}) {
+    let history = useHistory();
 
     function logOut() {
 		fetch("/logout", {
@@ -12,6 +13,7 @@ function NavBar({isLoggedIn, setIsLoggedIn}) {
 		}).then(() => {
             localStorage.removeItem("isLoggedIn")
             setIsLoggedIn(false)
+            history.push('/')
 		});
 	}
 
