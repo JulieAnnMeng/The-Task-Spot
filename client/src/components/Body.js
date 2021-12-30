@@ -4,10 +4,10 @@ import { useEffect, useState } from "react";
 import Home from "./Home";
 import FunList from "./FunList";
 import NewList from './NewList';
-// import Login from "./Login";
-// import Signup from "./Signup";
+import Login from "./Login";
+import Signup from "./Signup";
 
-function Body() {
+function Body({setIsLoggedIn, setUser, user}) {
 
     const[lists, setLists] = useState([]);
     const [funCards, setFunCards] = useState([]);
@@ -87,8 +87,8 @@ function Body() {
       }
 
     return (
-        <div>
-            <a href='/FunList'><button>Fun List</button></a>
+        <div><br />
+            {/* <a href='/FunList'><button>Fun List</button></a> */}
             <Switch>
                 <Route exact path="/">
                     {lists ?
@@ -114,12 +114,12 @@ function Body() {
                     : undefined}
                 </Route>
 
-                {/* <Route exact path="/Login">
-                    <Login />
+                <Route exact path="/Login">
+                    <Login setIsLoggedIn={setIsLoggedIn} setUser={setUser}/>
                 </Route>
                 <Route exact path="/Signup">
-                    <Signup />
-                </Route> */}
+                    <Signup setIsLoggedIn={setIsLoggedIn} setUser={setUser}/>
+                </Route>
             </Switch>
         </div>
     )

@@ -8,7 +8,6 @@ function Home({lists, handleTaskPatch, handleListDelete, handleNewList}) {
 
     return (
         <div className="home">
-
             <h2>Welcome to the Task Spot.</h2>
             
             <a href='/NewList'><button>Add a new List</button></a>

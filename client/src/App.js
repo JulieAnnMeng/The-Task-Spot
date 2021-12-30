@@ -12,15 +12,32 @@ function App() {
     const loggedIn = localStorage.getItem("isLoggedIn");
     // console.log(loggedIn)
     setIsLoggedIn(loggedIn)
-  }, []);
+     if(isLoggedIn) {
+      getUser()
+    } else {setUser(null)}
+  }, [isLoggedIn]);
 
-  // console.log(isLoggedIn)
-  // using localStorage to determine if user has logged in. 
+ 
+
+  function getUser() {
+    fetch("/me")
+    .then((r) => {
+      if (r.ok) {
+        r.json().then((data) => {
+          setUser(data);
+        })
+      } else {
+        r.json().then(setUser(null))
+      }})
+    .catch((error) => console.log(error))
+  }
+
+  // console.log(user, isLoggedIn)
 
   return (
     <div className="App">
-      <NavBar isLoggedIn={isLoggedIn} setUser={setUser} setIsLoggedIn={setIsLoggedIn}/>
-      <Body />
+      <NavBar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
+      <Body setIsLoggedIn={setIsLoggedIn} setUser={setUser} user={user}/>
       {/* <Footer /> 
       Footer issues removed for now*/}
     </div>

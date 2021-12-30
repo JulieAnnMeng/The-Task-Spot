@@ -1,3 +1,32 @@
+.navbar {
+  background-color: rgb(105, 199, 236);
+  height: 55px;
+  padding: 20px, 20px, 20px, 20px;
+}
+
+.block {
+  display: inline-block;
+}
+
+.site-title {
+  float: left;
+  margin-left: 20px;
+  text-decoration: none;
+  font-size: 34px;
+  font-weight: bold;
+}
+
+.navbar-links{
+  float: right;
+  margin-top: 7px;
+  margin-right: 20px;
+  top: 50%;
+}
+
+.form, .funList {
+  background-image: url("https://getwallpapers.com/wallpaper/full/4/d/5/1085195-gorgerous-grid-wallpaper-1920x1200-desktop.jpg");
+}
+
 body {
   margin: 0px;
 	padding: 0px;
@@ -6,29 +35,14 @@ body {
   text-align: center;
 	font-family: American Typewriter, serif;
   text-decoration: none;
+  background-image: url('https://c1.wallpaperflare.com/preview/907/581/284/backdrop-background-blank-board.jpg');
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Times New Roman', Times, serif;
 }
 
-.navbar {
-  background-color: rgba(105, 199, 236, 0.657);
-  height: 180px;
-  padding: 20px, 20px, 20px, 20px;
-  font-family: American Typewriter, serif;
-  font-size: 34px;
-  justify-content: space-between;
-  align-items: center;
-  text-decoration: none;
-}
-.site-title{
-  margin-top: 0px;
-  padding-top: 5px;
-  margin-bottom: 15px;
-  text-decoration: none;
-  font-family: American Typewriter, serif;
-}
+
 
 .App{
   font-family: American Typewriter, serif;

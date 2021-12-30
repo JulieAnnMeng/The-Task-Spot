@@ -67,7 +67,7 @@ function FunList({lists, funCards, handleFunAdd, handleTaskPatch, handleListDele
     }
 
     return (
-        <div>
+        <div className="funList">
             <h2>Plan fun activities below</h2>
             <button className="funListAdd" onClick={addFunForm}>Add Fun</button>
             {toggleAdd ? 

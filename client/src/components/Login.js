@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { useHistory } from 'react-router-dom'
 
 
-function Login({setIsLoggedIn, setUser}) {
+function Login({setIsLoggedIn}) {
     let history = useHistory();
 
     const blankFormData = {username: "", password: ""}
@@ -30,10 +30,9 @@ function Login({setIsLoggedIn, setUser}) {
         .then((r) => {
           if (r.ok) {
             r.json().then((user) => {
-                setUser(user);
                 localStorage.setItem("isLoggedIn", true);
                 setIsLoggedIn(true)
-                console.log(user);
+                history.push('/')
             });
           } 
           else {
@@ -44,59 +43,31 @@ function Login({setIsLoggedIn, setUser}) {
       }
 
     return (
-        <div className='container'>
-            <br /><h1 className='form-title'>Login</h1>
-            <div className='container outside'>
-                <div className='container inside'>
-                    <form className='container form' onSubmit={handleSubmit}>
-                        <div className='fields'>
-                            <div className="row g-3 align-items-center">
-                                <div className="col-auto">
-                                    <label className="col-form-label label"><span>Username</span></label>
-                                </div>
-                                <div className="col-auto">
-                                    <input 
-                                        id="username-login" 
-                                        className="form-control input"
-                                        size="50" 
-                                        aria-describedby="usernameHelpInline" 
-                                        placeholder="Username"
-                                        name="username" 
-                                        value={formData.username}
-                                        onChange={handleChange}
-                                    />
-                                </div>
-                            </div>
-                            &nbsp; &nbsp;
-                            <div className="row g-3 align-items-center">
-                                <div className="col-auto">
-                                    <label className="col-form-label label"><span> Password  </span></label>
-                                </div>
-                                <div className="col-auto ">
-                                    <input 
-                                        id="password-login"
-                                        className="form-control input"
-                                        size="50"
-                                        aria-describedby="passwordHelpInline"
-                                        placeholder="Password"
-                                        type="password"
-                                        name="password"
-                                        value={formData.password}    
-                                        onChange={handleChange}
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                        &nbsp;
-                        <div className="submit d-grid gap-2 d-md-block">
-                            <button type="submit" className="btn btn-primary bttn bttn2">Login</button>
-                        </div>
-                    </form>
-                    {/* ask Chaim or Billy on how to do pop up error messages. Setup validations for all forms */}
-                    {/* {errors ? (
-                        <Message error header={errors} content="Please sign in again" />
-                    ) : null} */}
-                </div>
+        <div className="form">
+            <h1 className='form-title'>Login</h1>
+            <div>
+                <form onSubmit={handleSubmit}>
+                    <label><span>Username </span></label>
+                    <input 
+                        id="username-login" 
+                        placeholder="Username"
+                        name="username" 
+                        value={formData.username}
+                        onChange={handleChange}
+                    />
+                    <br /><br />
+                    <label><span>Password </span></label>
+                    <input 
+                        id="password-login"
+                        placeholder="Password"
+                        type="password"
+                        name="password"
+                        value={formData.password}    
+                        onChange={handleChange}
+                    />
+                    <br /><br />
+                    <button type="submit">Login</button>
+                </form>
             </div>
         </div>
     )

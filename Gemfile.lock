@@ -140,7 +140,6 @@ GEM
     rake (13.0.6)
     reline (0.3.0)
       io-console (~> 0.5)
-    spring (4.0.0)
     thor (1.1.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
@@ -160,7 +159,6 @@ DEPENDENCIES
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.0)
-  spring
   tzinfo-data
 
 RUBY VERSION
