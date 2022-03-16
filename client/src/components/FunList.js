@@ -1,6 +1,6 @@
 import { useState} from 'react';
 import FunCard from './FunCard';
-import Lists from './Lists';
+import Lists from './ListsCard';
 // import { useParams, useHistory, Link } from 'react-router-dom'
 
 function FunList({lists, funCards, handleFunAdd, handleTaskPatch, handleListDelete, handleFunDelete}) {

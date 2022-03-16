@@ -1,8 +1,8 @@
 import { useState } from 'react';
 
-function NewTask({handleNewTask}) {
-// props.map to make each list
-    const blankForm = {date: "", task: "", priority: false};
+function NewTask({id, getLists}) {
+
+    const blankForm = {list_id: id, due_date: "", name: "", priority: false, completed: false};
     const [formData, setFormData] = useState(blankForm);
 
     function handleFormChange(e){
@@ -18,7 +18,14 @@ function NewTask({handleNewTask}) {
 
     function handleSubmit(e){
         e.preventDefault();
-        handleNewTask(formData);
+        fetch(`/tasks`,{
+            method:"POST", 
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(formData)
+            })
+            .then(r=>r.json())
+            .then(getLists)
+            .catch(error => console.error("Post fun error: ", error))
         setFormData(blankForm);
     }
 
@@ -26,26 +33,26 @@ function NewTask({handleNewTask}) {
         <form onSubmit={handleSubmit}>
             <label>High priority?</label>
             <input
-            type="checkbox"
-            name="priority"
-            checked={formData.priority}
-            value={formData.priority}
-            onChange={handleFormChange}
+                type="checkbox"
+                name="priority"
+                checked={formData.priority}
+                value={formData.priority}
+                onChange={handleFormChange}
              />
 
             <input
-            type="date"
-            name="date"
-            value={formData.date}
-            onChange={handleFormChange}
+                type="date"
+                name="due_date"
+                value={formData.date}
+                onChange={handleFormChange}
              />
 
             <input
-            type="text"
-            name="task"
-            placeholder="task"
-            value={formData.task}
-            onChange={handleFormChange}
+                type="text"
+                name="name"
+                placeholder="task"
+                value={formData.task}
+                onChange={handleFormChange}
              />
 
             <button type="submit">Submit</button>

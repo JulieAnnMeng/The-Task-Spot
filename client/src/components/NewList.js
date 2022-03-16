@@ -5,18 +5,11 @@ import { useState } from 'react';
 
 
 
-function NewList({lists, handleNewList}) {
-    /*  {id:1,
-        name:"",
-        date:"",
-        checked: false}
-    */
-
+function NewList({user, getLists}) {
     const blankForm = {
-        // id: lists.at(-1).id + 1,
+        user_id: user.id,
         title: "",
         description: "",
-        tasks:[]
     };
     const [newListFormData, setNewListFormData] = useState(blankForm);
 
@@ -26,12 +19,17 @@ function NewList({lists, handleNewList}) {
         setNewListFormData({...newListFormData, [name]: value})
     }
 
-
     function handleNewListSubmit(e){
         e.preventDefault();
-        handleNewList(newListFormData)
+        fetch(`/lists`,{
+            method:"POST", 
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify (newListFormData)
+            }
+            ).then(r=>r.json())
+            .then(getLists())
+            .catch(error => console.error("Post error: ", error))
     }
-
 
     return (
         <div className="newList">

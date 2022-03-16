@@ -4,7 +4,7 @@ class UsersController < ApplicationController
         user = User.new(user_params)    
         if user.save
             session[:user_id] = user.id
-            debugger
+            # debugger
             render json: user, status: :created
         #     UserMailer.registration_confirmation(@user).deliver
         #     flash[:success] = "Please confirm your email address to continue"

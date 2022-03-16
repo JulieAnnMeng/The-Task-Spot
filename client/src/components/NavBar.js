@@ -1,8 +1,5 @@
-import React, { useState } from "react";
-import { NavLink, Switch, Route, useHistory } from "react-router-dom";
-// import Home from "./Home";
-// import Login from "./Login";
-// import Signup from "./Signup";
+import React from "react";
+import { NavLink, useHistory } from "react-router-dom";
 
 function NavBar({isLoggedIn, setIsLoggedIn}) {
     let history = useHistory();
@@ -25,7 +22,7 @@ function NavBar({isLoggedIn, setIsLoggedIn}) {
             <nav className="navbar-links block">
                 {isLoggedIn ?
                     <>
-                        <NavLink className="nav-link" to='/FunList'><button>Fun List</button></NavLink>
+                        {/* <NavLink className="nav-link" to='/FunList'><button>Fun List</button></NavLink> */}
                         <button className="nav-link" onClick={logOut}>Logout</button>
                     </>
                     :
@@ -36,15 +33,6 @@ function NavBar({isLoggedIn, setIsLoggedIn}) {
                 }
                 
             </nav>
-
-            {/* <Switch>
-                <Route exact path="/Login">
-                    <Login setIsLoggedIn={setIsLoggedIn} setUser={setUser}/>
-                </Route>
-                <Route exact path="/Signup">
-                    <Signup />
-                </Route>
-            </Switch> */}
         </div>
     )
 }

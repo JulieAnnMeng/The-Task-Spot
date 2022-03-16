@@ -1,26 +1,35 @@
 import { useState, useEffect } from 'react';
-import {Switch, Route} from 'react-router-dom';
-
 import NewList from './NewList';
-import ListLists from './ListLists';
+import Lists from './Lists';
 
-function Home({lists, handleTaskPatch, handleListDelete, handleNewList}) {
+function Home({lists, user, getLists}) {
+
+    const [toggle, setToggle] = useState(false);
+
+    function handleToggle(){
+        setToggle(!toggle)
+    }
 
     return (
         <div className="home">
             <h2>Welcome to the Task Spot.</h2>
-            
-            <a href='/NewList'><button>Add a new List</button></a>
-            {/* button to hide list form */}
-            <div>
-                <NewList lists={lists} handleNewList={handleNewList}/>
-            </div>
-            
-
-            {/* Change logic below to: if logged in so lists, if not show message */}
-            {lists[0] ? <ListLists lists={lists} handleTaskPatch={handleTaskPatch} handleListDelete={handleListDelete}/>
-            : <h2>Loading Lists...</h2>}
-
+            <p>...info about the Task spot...</p>
+            <button onClick={handleToggle}>Add a new List</button>
+            {
+                toggle ?
+                <NewList user={user} getLists={getLists} />
+                :
+                null
+            }
+            {
+                lists ? 
+                <Lists 
+                    lists={lists} 
+                    getLists={getLists}
+                />
+                : 
+                null
+            }
         </div>
     )
 }

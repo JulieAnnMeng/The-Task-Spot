@@ -48,7 +48,7 @@ code {
   font-family: American Typewriter, serif;
 }
 
-.home > h2{
+.home > h2, .landingPage{
   font-size: 30px;
   padding-bottom: 10px;
   background-color: white;
@@ -113,7 +113,7 @@ body {
 	padding: 0px;
 }
 
-button {
+button, .btn {
 	background-color: black;
 	color: white;
   padding:5px;
