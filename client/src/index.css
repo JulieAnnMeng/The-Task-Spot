@@ -51,6 +51,10 @@ code {
 .home > h2, .landingPage{
   font-size: 30px;
   padding-bottom: 10px;
+}
+
+.header {
+  padding-bottom: 10px;
   background-color: white;
 }
 

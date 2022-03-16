@@ -9,7 +9,7 @@ function LandingPage({setIsLoggedIn}) {
 
     
     return (
-        <div className="landingPage">
+        <div className="landingPage header">
             <h1>Welcome to the Task Spot.</h1>
             <p>Please <a href="/login" className="btn">login</a> or <a href='/signup' className="btn">signup</a></p>
         </div>

@@ -12,9 +12,11 @@ function Home({lists, user, getLists}) {
 
     return (
         <div className="home">
-            <h2>Welcome to the Task Spot.</h2>
-            <p>...info about the Task spot...</p>
-            <button onClick={handleToggle}>Add a new List</button>
+            <div className="header">
+                <h2>Welcome to the Task Spot.</h2>
+                <p>One application to track your tasks, whether it is work, grocery shopping, or finding something fun to do.</p>
+                <button onClick={handleToggle}>Add a new List</button>
+            </div>
             {
                 toggle ?
                 <NewList user={user} getLists={getLists} />
